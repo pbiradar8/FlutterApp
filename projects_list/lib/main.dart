@@ -17,21 +17,24 @@ class ProjectsListApp extends StatelessWidget {
 }
 
 class HomeWidget extends StatelessWidget {
+  List<String> projectList = ['Nexsys Clearsign','2048','ABG Acid-Base Eval','Mini Bitbucket','Scanbacks','EMS-SPOT'];
   @override
   Widget build(BuildContext context) {
     return new ListView.builder(
-      itemCount: 20,
+      itemCount: projectList.length,
       itemBuilder: (context, rowNumber) {
-        var num = rowNumber + 1;
+        var num = rowNumber;
         return new Container(
           padding: new EdgeInsets.all(16.0),
           child: new Column(
             children: <Widget>[
-              new Image.network(
-                "https://raw.githubusercontent.com/flutter/website/master/src/_includes/code/layout/lakes/images/lake.jpg",
+              new SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: 200.0,
+                child: new Image.asset('images/picture$num.png'),
               ),
               new Container(height: 10.0,),
-              new Text("Project $num"),
+              new Text(projectList[num]),
               new Divider(),
             ],
           ),
